@@ -25,4 +25,5 @@ jobs:
 workflows:
   Example-Workflow:
     jobs:
+      - build
       - Hello-World
