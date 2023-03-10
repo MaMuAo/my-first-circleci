@@ -1,5 +1,9 @@
-version: 2
+version: 2.1
 jobs:
+  build:
+    machine: true
+    steps:
+      - run: ":"
   Hello-World:
     machine: true
     steps:
@@ -7,9 +11,6 @@ jobs:
           name: Saying Hello
           command: |
             echo '文字出力成功'
-    branches:
-      only:
-        - nothing/to/do
 workflows:
   Example-Workflow:
     jobs:
