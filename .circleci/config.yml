@@ -1,16 +1,27 @@
+# CircleCIのバージョン
 version: 2.1
 jobs:
   build:
-    machine: true
+    # 使用するDockerイメージ
+    docker:
+      - image: circleci/node:8.12.0
+    working_directory: ~/repo
+    # 処理内容
     steps:
-      - run: ":"
+      - checkout
+      - run:
+          name: Setting npm
+          command: npm install
+      - run:
+          name: Run test
+          command: npm run test
   Hello-World:
     machine: true
     steps:
       - run:
           name: Saying Hello
           command: |
-            echo '文字出力成功'
+            echo 'テストコードを追加してみた'
 workflows:
   Example-Workflow:
     jobs:
