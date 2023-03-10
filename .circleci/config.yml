@@ -3,7 +3,9 @@ jobs:
   build:
     machine: true
     steps:
-      - run: ":"
+      - run:
+          command: |
+            echo '文字出力成功'
     branches:
       only:
         - nothing/to/do
