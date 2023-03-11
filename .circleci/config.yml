@@ -10,14 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Download Dependencies
-          command: |
-            sudo chmod +x ./gradlew
-            ./gradlew androidDependencies
-      - run:
-          name: Download Dependencies
-          command: ./gradlew androidDependencies
-      - run:
           name: Setting npm
           command: npm install
       - run:
