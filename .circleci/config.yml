@@ -15,8 +15,7 @@ jobs:
           command: npm test
 
   Hello-World:
-    machine: # Linux仮想マシン
-      image: circleci/classic:edge 
+    machine: true # trueにすることで「circleci/classic:latest」適用
     steps:
       - run:
           name: Saying Hello
