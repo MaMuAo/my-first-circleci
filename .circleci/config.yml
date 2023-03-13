@@ -15,7 +15,7 @@ jobs:
           command: npm test
 
   Hello-World:
-    machine: true
+    # machine: true # trueにすることで「circleci/classic:latest」が摘要される（imageを
     steps:
       - run:
           name: Saying Hello
