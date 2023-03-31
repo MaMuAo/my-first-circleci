@@ -9,7 +9,6 @@ jobs:
     executor: node/default # use the default executor defined within the orb
     steps:
       - checkout
-          path: ~/webapp
       - run:
           command: corepack enable
           name: Package manager
