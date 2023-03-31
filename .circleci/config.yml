@@ -1,28 +1,19 @@
 # CircleCIのバージョン
 version: 2.1
 orbs:
-  node: circleci/node@5.1.0
+  node: circleci/node@5.0.2
+  aws-elastic-beanstalk: circleci/aws-elastic-beanstalk@2.0.1
+
 jobs:
-  build-and-test:
-    docker:
-      - image: cimg/node:16.10
+  build:
+    executor: node/default # use the default executor defined within the orb
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
+          path: ~/webapp
       - run:
-          name: Run tests
-          command: npm test
-
-  Hello-World:
-    machine: true # trueにすることで「circleci/classic:latest」適用
-    steps:
+          command: corepack enable
+          name: Package manager
+      - run: yarn install --immutable
       - run:
-          name: Saying Hello
-          command: |
-            echo 'テストコードを追加してみた'
-workflows:
-  Example-Workflow:
-    jobs:
-      - build-and-test
-      - Hello-World
+          command: npm run build
+          name: Build app
